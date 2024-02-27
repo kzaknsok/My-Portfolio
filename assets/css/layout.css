@@ -354,6 +354,7 @@ form .row-btn > button {
 	background: var(--primary-color);
 	border: none;
 	cursor: pointer;
+	border-radius: 1rem;
 }
 form .row-btn > button:nth-child(2) {
 	margin-left: 0.5rem;
