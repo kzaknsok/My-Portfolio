@@ -1,0 +1,149 @@
+@media (max-width: 933px) {
+    /* h1, h2, p {
+        margin: 1rem 2rem !important;
+    }
+    h1 {
+        margin-top: 5rem !important;
+    } */
+    .container {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .row {
+        flex-direction: column;
+    }
+    /* nav */
+    .navbar {
+        display: none !important;
+    }
+    /* responsive-nav */
+    .menu-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: block !important; 
+    }
+    .menu-wrap .toggler {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        cursor: pointer;
+        width: 60px;
+        height: 60px;
+        opacity: 0;
+    }
+    .menu-wrap .humburger {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 60px;
+        height: 60px;
+        padding: 1rem;
+        background-color: var(--text-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .menu-wrap .humburger > div {
+        position: relative;
+        flex: none;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+    }
+    .menu-wrap .humburger > div::before,
+    .menu-wrap .humburger > div::after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: -10px;
+        width: 100%;
+        height: 2px;
+        background: inherit;
+    }
+    .menu-wrap .humburger > div::after {
+        top: 10px;
+    }
+
+    .menu-wrap .toggler:checked + .humburger > div {
+        /* transform: rotate(135deg); 不要になるかも*/
+        transform: rotate(225deg);
+    }
+    .menu-wrap .toggler:checked + .humburger > div::before,
+    .menu-wrap .toggler:checked + .humburger > div::after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+
+    .menu-wrap .toggler:checked ~ .menu {
+        visibility: visible;
+    }
+    .menu-wrap .menu {
+        visibility: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .menu-wrap .menu > div {
+        background: var(--responsive-bg);
+        border-radius: 50%;
+        width: 200vw;
+        height: 200vh;
+        display: flex;
+        flex: none;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0);
+        transition: all 0.4s ease;
+    }
+    .menu-wrap .menu > div div {
+        text-align: center;
+        max-width: 90vw;
+        max-height: 100vh;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    .menu-wrap .toggler:checked ~ .menu > div > div {
+        opacity: 1;
+        transition: opacity 0.4s ease 0.4s;
+    }
+    .menu-wrap .menu > div > div > ul > li {
+        list-style: none;
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+    .menu-wrap .menu > div > div > ul > li > a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.4s ease;
+    }
+
+    .menu-wrap .toggler:checked ~ .menu > div {
+        transform: scale(1);
+        transition-duration: var(--menu-speed);
+    }
+
+    .garally .container {
+        /* 横並びに変換する */
+        flex-direction: row;
+        /* 折り返さない */
+        flex-wrap: nowrap;
+    }
+}

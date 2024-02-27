@@ -1,0 +1,416 @@
+/* 共通 */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.menu-wrap {
+	display: none;
+}
+/* 共通 */
+
+/* ******************************************************************************* */
+
+/* ナビバー start */
+.navbar {
+    /* fixedは制作中に邪魔だったコメントアウトは後ほど外す */
+    position: fixed;
+	top: 0;
+	width: 100%;
+	background: var(--primary-color);
+	transition: top 0.3s;
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	z-index: 2;
+}
+.navbar a {
+    display: block;
+    border-left: 1px solid var(--text-color);
+	text-decoration: none;
+}
+.navbar a:nth-last-child(1) {
+    border-right: 1px solid var(--text-color);
+}
+.navbar a:nth-child(1) {
+	border-left: none;
+}
+.navbar a > img {
+	display: block;
+	height: 60px;
+	padding-right: 1rem;
+}
+.navbar p {
+	font-size: 1.4rem;
+	padding: 1rem 2rem;
+    color: var(--text-color);
+	transition: opacity 0.5s ease;
+	opacity: 1;
+}
+.navbar p:hover {
+    opacity: 0.5;
+}
+/* ナビバー end */
+
+/* ******************************************************************************* */
+
+/* slider start */
+.slide {
+    /* 画像のサイズは準備時に合わせる */
+	position: relative;
+	width: 100%;
+	height: 600px;
+	margin-top: 4rem;
+}
+.slide img { 
+    /* 画像を重ねる */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0;
+	animation: slideshow 24s linear infinite;
+}
+.slide img:nth-child(2) {
+    animation-delay: 8s;
+}
+.slide img:nth-child(3) {
+    animation-delay: 16s;
+}
+@keyframes slideshow {
+    0% {
+        opacity: 0;
+	}
+	10% {
+        opacity: 1;
+	}
+	28% {
+        opacity: 1;
+	}
+	38% {
+        opacity: 0;
+	}
+	100% {
+        opacity: 0;
+	}
+}
+/* slider end */
+
+/* ******************************************************************************* */
+
+/* 自己紹介 start */
+.container.columns {
+    display: flex;
+	width: 100%;
+	overflow: hidden;
+}
+.row {
+    display: flex;
+	flex-direction: row-reverse;
+	width: 100%;
+	background: var(--primary-color);
+}
+.column {
+    display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.column img {
+    width: 100%;
+	object-fit: cover;
+}
+
+.flex-button {
+    display: flex;
+	justify-content: space-between;
+}
+.button {
+    /* flexに関する部分 */
+	width: 33.33%;
+	border: none;
+	background: var(--text-color);
+	font-size: 1.4rem;
+	color: var(--primary-color);
+	padding: 1rem 0.5rem;
+    cursor: pointer;
+    
+	/* animationに関わる部分 */
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+}
+.button::after {
+    content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.3);
+    /* -100%で隠しても端っこが見切る可能性あり */
+	transform: translateX(-110%);
+	transition: transform 0.3s;
+}
+.button:hover::after {
+    transform: translateX(0);
+}
+/* .buttonと連動してテキストが浮き上がる */
+.fade-in {
+	animation-name: fadeIn;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	padding-bottom: 2rem;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+	}
+	100% {
+        opacity: 1;
+	}
+}
+/* テキストのレイアウト */
+.flex-comment {
+    position: relative;
+	width: 100%;
+	height: 500px;
+	padding: 2rem;
+	overflow-x: scroll;
+}
+.comment {
+    width: 100%;
+	height: auto;
+}
+
+/* 自己紹介 end */
+
+/* ******************************************************************************* */
+
+/* Garally start */
+.garally {
+	padding-bottom: 2rem;
+}
+.garally .container {
+    width: 100%;
+	height: auto;
+	display: flex;
+	/* 全体flexだが折り返したくない */
+	flex-wrap: nowrap;
+	overflow-x: scroll;
+    overflow-y: hidden;
+}
+.garally .container {
+    width: 100%;
+	height: 100%;
+}
+.img-wrap {
+	width: 300px;
+	height: 250px;
+	/*拡大時のはみ出しを隠す*/
+	overflow: hidden; 
+	flex-shrink: 0;
+	margin: 1rem 2rem;
+}
+.img-fill img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.img-fill {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	/* 拡大のアニメーション効果を追加 */
+	transition: transform 0.3s ease; 
+}
+.img-fill::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3);
+}
+.img-fill:hover {
+	transform: scale(1.2);
+}
+/* テキスト */
+.img-fill {
+	position: relative;
+}
+.overlay-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: var(--primary-color);
+	width: 100%;
+	text-align: center;
+}
+.img-fill:hover::before,
+.img-fill:hover .overlay-text {
+	opacity: 0;
+}
+/* テキスト */
+
+/* スライドボタン */
+.side-scroll-btn-wrap {
+	width: 100%;
+	padding-left: 2rem;
+}
+.side-scroll-btn-wrap > button {
+	margin: 1rem 0.2rem 0;
+	padding: 0.5rem 1rem;
+	font-size: 1.3rem;
+	color: var(--text-color);
+	background: var(--primary-color);
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+}
+/* スライドボタン */
+
+/* Garally end */
+
+/* ******************************************************************************* */
+
+/* Topボタン */
+.btn-container {
+	display: flex;
+	width: 100%;
+	justify-content: end;
+}
+.back-to-top {
+    display: none;
+	margin: 3rem;
+	border: 1px solid var(--text-color);
+	border-radius: 50%;
+	background: #f3f3f3;
+	font-size: 3rem;
+	color: var(--text-color);
+	padding: 1rem;
+	cursor: pointer;
+	position: fixed;
+	bottom: 0;
+	animation-name: fadeBtn;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+	z-index: 2;
+}
+@keyframes fadeBtn {
+    0% {
+        opacity: 0;
+	}
+	100% {
+        opacity: 1;
+	}
+}
+/* Topボタン */
+
+/* form */
+.container form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+form {
+	background: var(--text-color);
+	color: var(--primary-color);
+	width: 100%;
+	padding: 2rem;
+	border-radius: 1rem;
+}
+form > label {
+	margin-top: 1rem;
+	font-size: 1.5rem;
+	width: 50%;
+}
+form > input {
+	font-size: 1.2rem;
+	padding: 0.3rem;
+	border: none;
+	width: 50%;
+}
+form > textarea {
+	font-size: 1.2rem;
+	padding: 0.3rem;
+	border: none;
+	width: 50%;
+}
+.row-btn {
+	width: 50%;
+	display: flex;
+	flex-direction: row;
+	margin: 2rem 0;
+}
+form .row-btn > button {
+	width: 50%;
+	font-size: 1.5rem;
+	padding: 0.5rem 1.5rem;
+	color: var(--text-color);
+	background: var(--primary-color);
+	border: none;
+	cursor: pointer;
+}
+form .row-btn > button:nth-child(2) {
+	margin-left: 0.5rem;
+	color: var(--primary-color);
+	background: var(--text-color);
+	border: 1px solid var(--primary-color);
+}
+/* form */
+
+/* ******************************************************************************* */
+
+/* footer start */
+.footer {
+	width: 100%;
+	background: var(--primary-color);
+	border-top: 2px solid var(--text-color);
+    display: flex;
+    justify-content: center;
+    padding: 0 2rem;
+    margin-top: 8rem;
+}
+.footer a {
+	display: block;
+	color: var(--text-color);
+    font-size: 1rem;
+	padding: 1.3rem 2rem;
+	text-decoration: none;
+}
+.footer p {
+	display: block;
+	color: var(--text-color);
+    font-size: 1rem;
+	padding: 1.3rem 2rem;
+}
+/* footer end */
+
+/* ******************************************************************************* */
+
+/* link.html */
+/* 準備中の表示をジャンプさせる */
+.loading {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 3em;
+	color: #333;
+	animation: jump 3s infinite;
+  }
+  
+  @keyframes jump {
+	0%, 20%, 40%, 60%, 100% {
+	  transform: translate(-50%, -50%);
+	}
+	30%, 50% {
+	  transform: translate(-50%, -70%);
+	}
+  }
+/* link.html */

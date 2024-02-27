@@ -1,0 +1,72 @@
+:root {
+    font-size: 16px;
+    --primary-color: #f3f3f3;
+    --text-color: rgba(0, 45, 180, 0.992);
+    --responsive-bg: rgba(0, 45, 180, 0.74);
+    --menu-speed: 0.75s;
+}
+
+::-webkit-scrollbar {
+	width: 10px;  /* スクロールバーの幅 */
+	height: 10px; /* スクロールバーの高さ */
+}
+::-webkit-scrollbar-track {
+	background: var(--primary-color);
+}
+::-webkit-scrollbar-thumb {
+	background: var(--text-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--primary-color);
+}
+
+h3 {
+    margin: 4rem 0 0 2rem;
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+h4 {
+    margin: 0 2rem;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+p {
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+
+.comment > h2 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+.comment > p {
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+hr {
+    margin-top: 2rem;
+    border: 1px solid var(--primary-color);
+}
+
+.g-bg {
+    background: var(--text-color);
+}
+.g-bg h3 {
+    color: var(--primary-color);
+}
+.g-bg h4 {
+    color: var(--primary-color);
+}
