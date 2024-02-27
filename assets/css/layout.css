@@ -322,7 +322,6 @@ form {
 	color: var(--primary-color);
 	width: 100%;
 	padding: 2rem;
-	border-radius: 1rem;
 }
 form > label {
 	margin-top: 1rem;
